@@ -1,0 +1,47 @@
+<div class="form-group">
+
+    <label for="name">Application Name</label>
+    <input type="text" class="form-control" name="name" ng-model="formData.name">
+</div>
+
+<div class="form-group">
+    <label for="Descrizione">Descrizione</label>
+    <input type="text" class="form-control" name="descrizione" ng-model="formData.descrizione">
+</div>
+
+<div class="form-group">
+    <label for="Dato 1">Dato 1</label>
+    <input type="text" class="form-control" name="dato1" ng-model="formData.dato1">
+</div>
+
+<div class="form-group">
+    <label for="Dato 2">Dato 2</label>
+    <input type="text" class="form-control" name="dato2" ng-model="formData.dato2">
+</div>
+
+<div class="form-group">
+    <label for="Dato 3">Dato 3</label>
+    <input type="text" class="form-control" name="dato3" ng-model="formData.dato3">
+</div>
+
+<div class="form-group">
+    <label for="Dato 4">Dato 4</label>
+    <input type="text" class="form-control" name="dato4" ng-model="formData.dat4">
+</div>
+
+<div class="form-group row">
+    <div class="col-xs-8 col-xs-offset-3">
+
+
+        <a ui-sref="form.models" class="btn btn-block btn-info">
+            Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+        </a>
+    </div>
+
+</div>
+
+<pre class= "col-sm-8 col-sm-offset-2">
+
+            {{ formData }}
+
+        </pre>
