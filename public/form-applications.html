@@ -1,46 +1,121 @@
-<div class="form-group">
+<div class="testo">
 
-    <label for="name">Application Name</label>
-    <input type="text" class="form-control" name="name" ng-model="formData.name">
+    <div class="row">
+
+        <div class="col-sm-4 col-sm-offset-4">
+
+            <label for="name" style="align-content: center">Application Name</label>
+            <input type="text" class="form-control" name="name" ng-model="formData.name" style="text-align: center" required>
+
+        </div>
+    </div>
 </div>
 
-<div class="form-group">
-    <label for="Descrizione">Descrizione</label>
-    <input type="text" class="form-control" name="descrizione" ng-model="formData.descrizione">
+<div class="testo">
+
+    <div class="row">
+
+        <div class="col-sm-4 col-sm-offset-4">
+
+            <label for="Owner">First Name / Surname </label>
+            <input type="text" class="form-control" name="owner" ng-model="formData.owner" style="text-align: center" required>
+
+        </div>
+    </div>
 </div>
 
-<div class="form-group">
-    <label for="Dato 1">Dato 1</label>
-    <input type="text" class="form-control" name="dato1" ng-model="formData.dato1">
+<div class="testo">
+
+    <div class="row">
+
+        <div class="col-sm-4 col-sm-offset-4">
+
+            <label for="Technology">Technology</label>
+            <input type="text" class="form-control" name="technology" ng-model="formData.technology" style="text-align: center" required>
+
+        </div>
+    </div>
 </div>
 
-<div class="form-group">
-    <label for="Dato 2">Dato 2</label>
-    <input type="text" class="form-control" name="dato2" ng-model="formData.dato2">
+<div class="testo">
+
+    <div class="row">
+
+        <div class="col-sm-4 col-sm-offset-4">
+
+            <label for="Dato 1">Dato 1</label>
+            <input type="text" class="form-control" name="dato1" ng-model="formData.dato1" style="text-align: center">
+
+        </div>
+    </div>
 </div>
 
-<div class="form-group">
-    <label for="Dato 3">Dato 3</label>
-    <input type="text" class="form-control" name="dato3" ng-model="formData.dato3">
+<div class="testo">
+
+    <div class="row">
+
+        <div class="col-sm-4 col-sm-offset-4">
+
+            <label for="Dato 2">Dato 2</label>
+            <input type="text" class="form-control" name="dato2" ng-model="formData.dato2" style="text-align: center">
+
+        </div>
+    </div>
 </div>
 
-<div class="form-group">
-    <label for="Dato 4">Dato 4</label>
-    <input type="text" class="form-control" name="dato4" ng-model="formData.dat4">
+<div class="testo">
+
+    <div class="row">
+
+        <div class="col-sm-4 col-sm-offset-4">
+
+            <label for="Dato 3">Dato 3</label>
+            <input type="text" class="form-control" name="dato3" ng-model="formData.dato3" style="text-align: center">
+
+        </div>
+    </div>
 </div>
 
-<div class="form-group row">
-    <div class="col-xs-8 col-xs-offset-3">
+<div class="testo">
+
+    <div class="row">
+
+        <div class="col-sm-4 col-sm-offset-4">
+
+            <label for="Dato 4">Dato 4</label>
+            <input type="text" class="form-control" name="dato4" ng-model="formData.dato4" style="text-align: center">
+
+        </div>
+    </div>
+</div>
 
 
-        <a ui-sref="form.models" class="btn btn-block btn-info">
-            Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+<div class="form-group" style="margin-top: 50px;">
+
+    <div class="col-sm-2 col-sm-offset-4" >
+
+        <a ui-sref="form.instructions" class="btn btn-block btn-info" ng-click="processForm()">
+            <span class="glyphicon glyphicon-circle-arrow-left"></span>   Previous Section
         </a>
+
     </div>
 
 </div>
 
-<pre class= "col-sm-8 col-sm-offset-2">
+<div class="form-group" style="margin-top: 50px;">
+
+    <div class="col-sm-2">
+
+        <a ui-sref="form.models" class="btn btn-block btn-info" ng-click="processForm()">
+            Next Section   <span class="glyphicon glyphicon-circle-arrow-right"></span>
+        </a>
+
+    </div>
+
+</div>
+
+
+<pre class= "col-sm-8 col-sm-offset-2" style="margin-top: 40px;">
 
             {{ formData }}
 
