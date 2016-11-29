@@ -12,7 +12,7 @@
     "express": "~4.14.0",
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
-    "neo4j": "~2.0.0-RC2",
+    "oracledb": "~1.11.0",
     "serve-favicon": "~2.3.0"
   }
 }
