@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
   "name": "CSSTool",
   "version": "1.0.0",
+=======
+  "name": "csstool",
+  "version": "0.0.1",
+>>>>>>> ec02f2a035db7b45fb440987649844dad5dd5420
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
@@ -12,6 +17,7 @@
     "express": "~4.14.0",
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
+    "neo4j": "~2.0.0-RC2",
     "serve-favicon": "~2.3.0"
   }
 }
