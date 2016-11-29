@@ -37,17 +37,26 @@ angular.module('untitled', ['ngAnimate', 'ui.router'])
         });
 
 
-    $urlRouterProvider.otherwise('/form');
+    $urlRouterProvider.otherwise('/form/instructions');
 
 
     })
 
-.controller('formCtrl', function($scope) {
+.controller('formCtrl', function($scope, $http) {
 
-    $scope.formData = {};
+    $scope.formData = {}
+
     $scope.processForm = function() {
-
-        alert("Awesome!");
+        $http.post('/api/todos', $scope.formData)
+            .success(function(data) {
+                $scope.formData = {};
+                $scope.todos = data;
+                console.log(data);
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
     };
 
 });
+
