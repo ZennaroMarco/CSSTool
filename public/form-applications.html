@@ -1,122 +1,162 @@
-<div class="testo">
+<body class="container">
 
-    <div class="row">
+<h4>Simple Accordion</h4>
+<ul class="collapsible" data-collapsible="accordion">
+    <li>
+        <div class="collapsible-header"><i class="material-icons">filter_drama</i>First Section</div>
+        <div class="collapsible-body"><p>This is first section.</p></div>
+    </li>
+    <li>
+        <div class="collapsible-header"><i class="material-icons">place</i>Second Section</div>
+        <div class="collapsible-body"><p>This is second section.</p></div>
+    </li>
+    <li>
+        <div class="collapsible-header"><i class="material-icons">whatshot</i>Third Section</div>
+        <div class="collapsible-body"><p>This is third section.</p></div>
+    </li>
+</ul>>
 
-        <div class="col-sm-4 col-sm-offset-4">
 
-            <label for="name" style="align-content: center">Application Name</label>
-            <input type="text" class="form-control" name="name" ng-model="formData.name" style="text-align: center" required>
+<div class="row">
+
+        <div class="col-lg-6">
+
+                <div class="testo">
+
+                        <div class="row">
+
+                                <div class="col-sm-4">
+
+                                        <label for="name" style="align-content: center">Application Name</label>
+                                        <input type="text" class="form-control" name="name" ng-model="formData.name" style="text-align: center" required>
+
+                                </div>
+                        </div>
+                </div>
+
+                <div class="testo">
+
+                        <div class="row">
+
+                                <div class="col-sm-4 col-sm-offset-4">
+
+                                        <label for="Owner">First Name / Surname </label>
+                                        <input type="text" class="form-control" name="owner" ng-model="formData.owner" style="text-align: center" required>
+
+                                </div>
+                        </div>
+                </div>
+
+                <div class="testo">
+
+                        <div class="row">
+
+                                <div class="col-sm-4 col-sm-offset-4">
+
+                                        <label for="Technology">Technology</label>
+                                        <input type="text" class="form-control" name="technology" ng-model="formData.technology" style="text-align: center" required>
+
+                                </div>
+                        </div>
+                </div>
+
+                <div class="testo">
+
+                        <div class="row">
+
+                                <div class="col-sm-4 col-sm-offset-4">
+
+                                        <label for="Dato 1">Dato 1</label>
+                                        <input type="text" class="form-control" name="dato1" ng-model="formData.dato1" style="text-align: center">
+
+                                </div>
+                        </div>
+                </div>
+
+                <div class="testo">
+
+                        <div class="row">
+
+                                <div class="col-sm-4 col-sm-offset-4">
+
+                                        <label for="Dato 2">Dato 2</label>
+                                        <input type="text" class="form-control" name="dato2" ng-model="formData.dato2" style="text-align: center">
+
+                                </div>
+                        </div>
+                </div>
+
+                <div class="testo">
+
+                        <div class="row">
+
+                                <div class="col-sm-4 col-sm-offset-4">
+
+                                        <label for="Dato 3">Dato 3</label>
+                                        <input type="text" class="form-control" name="dato3" ng-model="formData.dato3" style="text-align: center">
+
+                                </div>
+                        </div>
+                </div>
+
+                <div class="testo">
+
+                        <div class="row">
+
+                                <div class="col-sm-4 col-sm-offset-4">
+
+                                        <label for="Dato 4">Dato 4</label>
+                                        <input type="text" class="form-control" name="dato4" ng-model="formData.dato4" style="text-align: center">
+
+                                </div>
+                        </div>
+                </div>
+
+
+            <div class="form-group" style="margin-top: 50px;">
+
+                    <div class="col-sm-2 col-sm-offset-4" >
+
+                            <a ui-sref="form.instructions" class="btn btn-block btn-info" ng-click="processForm()">
+                            <span class="glyphicon glyphicon-circle-arrow-left"></span>   Previous Section</a>
+
+                    </div>
+
+            </div>
+
+            <div class="form-group" style="margin-top: 50px;">
+
+                    <div class="col-sm-2">
+
+                            <a ui-sref="form.models" class="btn btn-block btn-info" ng-click="processForm()">
+                            Next Section   <span class="glyphicon glyphicon-circle-arrow-right"></span></a>
+
+                    </div>
+            </div>
+
+
+            <input type="file" file-reader="fileContent" />
+            {{fileContent}}
+
 
         </div>
-    </div>
-</div>
 
-<div class="testo">
 
-    <div class="row">
+        <div class="col-lg-6" file-reader="fileContent">
 
-        <div class="col-sm-4 col-sm-offset-4">
+                <pre style="margin-top: 40px;">
 
-            <label for="Owner">First Name / Surname </label>
-            <input type="text" class="form-control" name="owner" ng-model="formData.owner" style="text-align: center" required>
+                    <div>{{fileContent}}</div>
+                    {{ formData }}
 
+                </pre>
+
+
+            <!-- Fine col -->
         </div>
-    </div>
+
+
+    <!-- Fine row -->
 </div>
 
-<div class="testo">
-
-    <div class="row">
-
-        <div class="col-sm-4 col-sm-offset-4">
-
-            <label for="Technology">Technology</label>
-            <input type="text" class="form-control" name="technology" ng-model="formData.technology" style="text-align: center" required>
-
-        </div>
-    </div>
-</div>
-
-<div class="testo">
-
-    <div class="row">
-
-        <div class="col-sm-4 col-sm-offset-4">
-
-            <label for="Dato 1">Dato 1</label>
-            <input type="text" class="form-control" name="dato1" ng-model="formData.dato1" style="text-align: center">
-
-        </div>
-    </div>
-</div>
-
-<div class="testo">
-
-    <div class="row">
-
-        <div class="col-sm-4 col-sm-offset-4">
-
-            <label for="Dato 2">Dato 2</label>
-            <input type="text" class="form-control" name="dato2" ng-model="formData.dato2" style="text-align: center">
-
-        </div>
-    </div>
-</div>
-
-<div class="testo">
-
-    <div class="row">
-
-        <div class="col-sm-4 col-sm-offset-4">
-
-            <label for="Dato 3">Dato 3</label>
-            <input type="text" class="form-control" name="dato3" ng-model="formData.dato3" style="text-align: center">
-
-        </div>
-    </div>
-</div>
-
-<div class="testo">
-
-    <div class="row">
-
-        <div class="col-sm-4 col-sm-offset-4">
-
-            <label for="Dato 4">Dato 4</label>
-            <input type="text" class="form-control" name="dato4" ng-model="formData.dato4" style="text-align: center">
-
-        </div>
-    </div>
-</div>
-
-
-<div class="form-group" style="margin-top: 50px;">
-
-    <div class="col-sm-2 col-sm-offset-4" >
-
-        <a ui-sref="form.instructions" class="btn btn-block btn-info" ng-click="processForm()">
-            <span class="glyphicon glyphicon-circle-arrow-left"></span>   Previous Section
-        </a>
-
-    </div>
-
-</div>
-
-<div class="form-group" style="margin-top: 50px;">
-
-    <div class="col-sm-2">
-
-        <a ui-sref="form.models" class="btn btn-block btn-info" ng-click="processForm()">
-            Next Section   <span class="glyphicon glyphicon-circle-arrow-right"></span>
-        </a>
-
-    </div>
-
-</div>
-
-
-<pre class= "col-sm-8 col-sm-offset-2" style="margin-top: 40px;">
-
-            {{ formData }}
-
-        </pre>
+</body>

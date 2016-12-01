@@ -2,49 +2,11 @@
  * Created by marcozennaro on 27/11/2016.
  */
 
-angular.module('untitled', ['ngAnimate', 'ui.router'])
+var MyApp = angular.module('MyApp', []);
 
-.config(function($stateProvider,$urlRouterProvider) {
+MyApp.controller('formCtrl', function($scope, $http) {
 
-    $stateProvider
-
-        .state('form', {
-
-            url: '/form',
-            templateUrl: 'form.html',
-            controller: 'formCtrl'
-        })
-
-        .state('form.instructions', {
-
-            url: '/instructions',
-            templateUrl: 'form-instructions.html'
-        })
-
-        .state('form.applications', {
-
-            url: '/applications',
-            templateUrl: 'form-applications.html'
-
-        })
-
-        .state('form.models' , {
-
-
-            url: '/models',
-            templateUrl: 'form-models.html'
-
-        });
-
-
-    $urlRouterProvider.otherwise('/form/instructions');
-
-
-    })
-
-.controller('formCtrl', function($scope, $http) {
-
-    $scope.formData = {}
+    $scope.formData =  [];
 
     $scope.processForm = function() {
         $http.post('/api/todos', $scope.formData)
@@ -58,5 +20,69 @@ angular.module('untitled', ['ngAnimate', 'ui.router'])
             });
     };
 
+    $scope.accept = function(idx){
+        $scope.showacceptation[idx] = true;
+        $scope.showdenied[idx] = false;
+    }
+
+    $scope.addRow = function(){
+        $scope.formData.push({ 'name':$scope.name, 'owner': $scope.owner, 'technology':$scope.technology, 'dato1':$scope.dato1, 'dato2':$scope.dato2, 'dato3':$scope.dato3, 'dato4':$scope.dato4 });
+        $scope.name='';
+        $scope.owner='';
+        $scope.technology='';
+        $scope.dato1='';
+        $scope.dato2='';
+        $scope.dato3='';
+        $scope.dato4='';
+    };
+
+    $scope.checkAll = function () {
+        if (!$scope.selectedAll) {
+            $scope.selectedAll = true;
+        } else {
+            $scope.selectedAll = false;
+        }
+        angular.forEach($scope.formData, function (formData) {
+            formData.selected = $scope.selectedAll;
+        });
+    };
+
+    $scope.remove = function(){
+        var newDataList=[];
+        $scope.selectedAll = false;
+        angular.forEach($scope.formData, function(selected){
+            if(!selected.selected){
+                newDataList.push(selected);
+            }
+        });
+        $scope.formData = newDataList;
+    };
 });
+
+
+MyApp.directive('fileReader', function() {
+    return {
+        scope: {
+            fileReader:"="
+        },
+        link: function(scope, element) {
+            $(element).on('change', function(changeEvent) {
+                var files = changeEvent.target.files;
+                if (files.length) {
+                    var r = new FileReader();
+                    r.onload = function(e) {
+                        var contents = e.target.result;
+                        scope.$apply(function () {
+                            scope.fileReader = contents;
+                        });
+                    };
+
+                    r.readAsText(files[0]);
+                }
+            });
+        }
+    };
+});
+
+
 
