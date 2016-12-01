@@ -3,10 +3,12 @@ var oracledb = require('oracledb');
 
 var router = express.Router();
 
+oracledb.autoCommit = true;
+
 var connAttrs = {
-    'user': 1,
-    'password': 1,
-    'connectString': 1
+    'user': 'admin',
+    'password': 'Oracle00',
+    'connectString': 'localhost/xe'
 };
 
 router.get('/api/v1/application', function(req, res) {
@@ -20,7 +22,6 @@ router.get('/api/v1/application', function(req, res) {
                 message: 'Error connecting to db',
                 detailed_message: err.message
             }));
-            // res.send(err); ???
         } else {
             connection.execute('SELECT * FROM APPLICATION', {}, {
                 outFormat: oracledb.OBJECT
@@ -35,7 +36,6 @@ router.get('/api/v1/application', function(req, res) {
                 } else {
                     res.contentType('application/json').status(200);
                     res.send(JSON.stringify(result.rows));
-                    // res.json(results); ???
                 }
 
                 connection.release(function(err) {
@@ -53,16 +53,6 @@ router.get('/api/v1/application', function(req, res) {
 router.post('/api/v1/application', function(req, res) {
     'use strict';
 
-    if ('application/json' !== req.get('Content-Type')) {
-        res.set('Content-Type', 'application/json');
-        res.status(415).send(JSON.stringify({
-            status: 415,
-            message: 'Wrong content-type. Only application/json is supported',
-            detailed_message: null
-        }));
-        return;
-    }
-
     oracledb.getConnection(connAttrs, function(err, connection) {
         if (err) {
             res.set('Content-Type', 'application/json');
@@ -71,11 +61,10 @@ router.post('/api/v1/application', function(req, res) {
                 message: 'Error connecting to db',
                 detailed_message: err.message
             }));
-            // res.send(err); ???
         } else {
-            connection.execute('INSERT INTO APPLICATION VALUES' +
-                '(:NAME)', [req.body.NAME], {
-                isAutoCommit: true,
+            connection.execute('INSERT INTO APPLICATION (NAME, DESCRIPTION, OWNER, TECHNOLOGY, BUSINESSAREA) ' +
+                    'VALUES (:name, :description, :owner, :technology, :businessArea)',
+                    [req.body.name, req.body.description, req.body.owner, req.body.technology, req.body.business_area], {
                 outFormat: oracledb.OBJECT
             }, function(err, result) {
                 if (err) {
@@ -87,7 +76,6 @@ router.post('/api/v1/application', function(req, res) {
                     }));
                 } else {
                     res.status(201).end();
-                    // res.json(results); ???
                 }
 
                 connection.release(function(err) {
@@ -102,7 +90,7 @@ router.post('/api/v1/application', function(req, res) {
     });
 });
 
-router.delete('/api/v1/application/:name', function(req, res) {
+router.delete('/api/v1/application/:application_id', function(req, res) {
     'use strict';
 
     oracledb.getConnection(connAttrs, function(err, connection) {
@@ -113,11 +101,9 @@ router.delete('/api/v1/application/:name', function(req, res) {
                 message: 'Error connecting to db',
                 detailed_message: err.message
             }));
-            // res.send(err); ???
         } else {
-            connection.execute('DELETE FROM APPLICATION' +
-                'WHERE NAME = :NAME', [req.params.NAME], {
-                isAutoCommit: true,
+            connection.execute('DELETE FROM APPLICATION ' +
+                'WHERE APPLICATIONID = :applicationId', [req.params.application_id], {
                 outFormat: oracledb.OBJECT
             }, function(err, result) {
                 if (err || result.rowsAffected === 0) {
@@ -129,7 +115,6 @@ router.delete('/api/v1/application/:name', function(req, res) {
                     }));
                 } else {
                     res.status(204).end();
-                    // res.json(results); ???
                 }
 
                 connection.release(function(err) {
