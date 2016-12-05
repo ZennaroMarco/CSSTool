@@ -1,0 +1,119 @@
+
+main {
+  position: relative;
+}
+
+/* Video wrap */
+.bv-video-wrap {
+  width: 100%;
+  height: 100%;
+  /* Please note this is only required if you with to add the
+  '.bv-video-wrap--ready' class on the 'onReady' event */
+  display: none;
+}
+
+.bv-video-wrap--ready {
+  display: block;
+}
+
+.bv-testo {
+
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+
+}
+
+.bv-video-wrap::before {
+  /* Optional overlay */
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+/* Video object */
+.bv-video {
+  width: 100%;
+  height: 100%;
+}
+
+#heading h2 { display:inline;}
+
+.menu {
+
+  position: fixed;
+  top:0px;
+  width:100%;
+  height:60px;
+  background-color: rgba(0,0,0,1.0);
+  z-index:100;
+  background-color:transparent;
+  transition: all 0.2s ease-in-out;
+
+
+}
+
+.menu.active {
+  background: #000000;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
+
+.slide
+{
+  width: 100%;
+  position: relative;
+  text-align: center;
+}
+
+#slide2,
+#slide4,
+#slide6
+{
+  background-color:#ffffff;
+  box-shadow: 0 18px 14px -14px rgba(0,0,0,0.6), 0 -18px 14px -14px rgba(0,0,0,0.6);
+  z-index: 10;
+  padding: 75px 0 200px 0;
+
+
+}
+
+#slide1
+{
+  background-color:#fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding:200px 0;
+}
+
+#slide3
+{
+  background-image:url('../images/cloud_background1.jpg');
+  background-color:#fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 200px 0;
+
+}
+
+#slide5
+{
+  background-image:url('../images/cloud_background2.jpg');
+  background-color:#fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 150px 0;
+
+}
