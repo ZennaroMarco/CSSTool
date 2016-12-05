@@ -11,7 +11,7 @@ var connAttrs = {
     'connectString': 'localhost/xe'
 };
 
-router.get('/api/v1/model', function(req, res) {
+router.get('/api/v1/template', function(req, res) {
     'use strict';
 
     oracledb.getConnection(connAttrs, function(err, connection) {
@@ -23,14 +23,14 @@ router.get('/api/v1/model', function(req, res) {
                 detailed_message: err.message
             }));
         } else {
-            connection.execute('SELECT * FROM MODEL', {}, {
+            connection.execute('SELECT * FROM TEMPLATE', {}, {
                 outFormat: oracledb.OBJECT
             }, function(err, result) {
                 if (err) {
                     res.set('Content-Type', 'application/json');
                     res.status(500).send(JSON.stringify({
                         status: 500,
-                        message: 'Error getting models',
+                        message: 'Error getting templates',
                         detailed_message: err.message
                     }));
                 } else {
@@ -42,7 +42,7 @@ router.get('/api/v1/model', function(req, res) {
                     if (err) {
                         console.error(err.message);
                     } else {
-                        console.log('GET /api/v1/model : Connection released');
+                        console.log('GET /api/v1/template : Connection released');
                     }
                 });
             });
