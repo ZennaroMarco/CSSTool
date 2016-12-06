@@ -70,7 +70,7 @@
         <ul class="tabs" style="background-color:#000000; border-top: 1px solid #eceff1;">
             <li class="tab col s4"><a href="#instructions">1. Instructions</a></li>
             <li class="tab col s4"><a href="#applications">2. Applications</a></li>
-            <li class="tab col s4"><a href="#models">3. Models</a></li>
+            <li class="tab col s4"><a href="#template">3. Templates</a></li>
         </ul>
     </div>
     <div id="instructions" class="col s12">
@@ -234,13 +234,14 @@
 
                     <div class="section">
 
-                    <form action="#">
+                   <form>
 
                         <div class="file-field input-field">
 
                             <div class="btn">
                                 <span>File</span>
-                                <input type="file" file-reader="fileContent">
+                                <input type="file" file-change="handler($event,files)" ng-model="formData" />
+
                             </div>
 
                             <div class="file-path-wrapper">
@@ -248,12 +249,15 @@
                             </div>
 
                         </div>
-                    </form>
 
-                    {{fileContent}}
+
+                            <button class="btn waves-effect waves-light"  ng-click="remove()" style="align-content: center; text-align: center; margin-top: 30px;">Insert Applications
+                                <i class="material-icons right">send</i>
+                            </button>
+
+                     </form>
+
                     </div>
-
-
                 </div>
 
                 </div>
@@ -400,7 +404,6 @@
 
 
                 <a class="waves-effect waves-light btn" ng-click="remove()" style="margin-top: 50px; float: right">DELETE</a>
-                {{fileContent}}
 
 
             </div>
@@ -412,7 +415,7 @@
 </div>
     </div>
 
-    <div id="models" class="col s12">Test 3</div>
+    <div id="template" class="col s12">Test 3</div>
 
 
 </body>
