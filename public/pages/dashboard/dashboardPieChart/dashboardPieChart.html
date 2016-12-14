@@ -1,0 +1,112 @@
+<script>
+
+    $("#card").flip({
+        axis: 'y',
+        trigger: 'hover'
+    });
+
+</script>
+
+
+<script>
+
+    $("#card4").flip({
+        axis: 'y',
+        trigger: 'hover'
+    });
+
+</script>
+
+<style>
+
+    .panel-title {
+
+        color: white;
+        text-align: center;
+    }
+
+
+</style>
+
+
+<div class="row pie-charts">
+
+  <div class="pie-chart-item-container" ng-repeat="chart in charts2">
+
+                <div ba-panel>
+
+                                <div class="pie-chart-item" style="color: white">
+
+                                                  <div class="description">
+
+                                                                 <div>{{ ::chart.description }}</div>
+
+                                                                 <div class="description-stats" style="margin-top: 10px; margin-right: 10px;">{{ ::chart.stats }}</div>
+
+                                                  </div>
+
+                                                                <i class="chart-icon i-{{ ::chart.icon }}"></i>
+
+
+                                </div>
+
+                </div>
+
+
+  </div>
+
+
+
+
+        <div class="pie-chart-item-container" ng-repeat="chart in charts">
+
+                            <div ba-panel>
+                              <div class="pie-chart-item" style="color: white">
+                                <div class="chart" rel="{{ ::chart.color }}" data-percent="60"> <span class="percent"></span> </div>
+                                <div class="description">
+                                  <div>{{ ::chart.description }}</div>
+                                  <div class="description-stats"style="margin-top: 10px; margin-right: 10px;">{{ ::chart.stats }}</div>
+                                </div>
+                                <i class="chart-icon i-{{ ::chart.icon }}"></i>
+                              </div>
+                            </div>
+
+        </div>
+
+
+</div>
+
+
+<div class="row pie-charts">
+
+    <div class="col-md-12 col-lg-3"
+         ba-panel
+         ba-panel-title="Applications"
+         ba-panel-class="xsmall-panel with-scroll feed-panel">
+        <blur-feed></blur-feed>
+    </div>
+
+
+    <div class="col-md-12 col-lg-3"
+         ba-panel
+         ba-panel-title="Templated Apps"
+         ba-panel-class="xsmall-panel with-scroll feed-panel">
+        <blur-feed-templated></blur-feed-templated>
+    </div>
+
+    <div class="col-md-12 col-lg-3"
+         ba-panel
+         ba-panel-title="Completed Apps"
+         ba-panel-class="xsmall-panel with-scroll feed-panel">
+        <blur-feed-completed></blur-feed-completed>
+    </div>
+
+    <div class="col-md-12 col-lg-3"
+         ba-panel
+         ba-panel-title="Incomplete Apps"
+         ba-panel-class="xsmall-panel with-scroll feed-panel">
+        <blur-feed-incomplete></blur-feed-incomplete>
+    </div>
+
+</div>
+
