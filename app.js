@@ -22,6 +22,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.disable('etag');
+
 app.use('/', application);
 app.use('/', template);
 app.use('/', applicationTemplate);

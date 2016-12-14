@@ -13,6 +13,19 @@ MyApp.controller('formCtrl', function($scope, $http, $filter) {
 
     $scope.formData =  [];
 
+
+    $http.get('http://localhost:3000/api/v1/template').then(
+        function successCallback(data) {
+            alert("ok");
+        },
+        function errorCallback(data) {
+
+            alert("error" + JSON.stringify(data));
+        }
+    );
+
+
+
     $scope.processForm = function() {
         $http.post('/api/todos', $scope.formData)
             .success(function(data) {
@@ -53,6 +66,7 @@ MyApp.controller('formCtrl', function($scope, $http, $filter) {
             formData.selected = $scope.selectedAll;
         });
     };
+
 
     $scope.remove = function(){
         var newDataList=[];
@@ -101,10 +115,8 @@ $scope.myCSVdata = [];
         }
 
 
-        }
+        };
 
-
-    /* To access 'contents' here */
     function accessFileContents(){
 
         //setTimeout(function() { addRo(); }, wait4file2load);
@@ -148,7 +160,6 @@ $scope.myCSVdata = [];
         }
 
     }
-
 });
 
 
@@ -294,4 +305,21 @@ function csvJSON(csv){
 
     //return result; //JavaScript object
     return JSON.stringify(result); //JSON
+
 }
+
+/*var app = angular.module('MyApp',[]);
+
+app.controller('formCtrl', function($scope, $http) {
+    $scope.data = [];
+
+    $http.get('http://localhost:3000/api/v1/template').then(
+        function successCallback(data) {
+            $scope.data = data;
+            alert("okkkkk");
+        },
+        function errorCallback(data) {
+            alert("error: " + data);
+        }
+    );
+});*/
