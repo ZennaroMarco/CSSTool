@@ -23,11 +23,10 @@ router.get('/api/v1/application_template/:application_id', function(req, res) {
                 detailed_message: err.message
             }));
         } else {
-            connection.execute('SELECT cn.NAME, cv.VALUE ' +
-                'FROM APPLICATIONTEMPLATE atmp JOIN TEMPLATECRITERIA tc ON atmp.TEMPLATEID = tc.TEMPLATEID ' +
-                'JOIN CRITERIAVALUE cv ON tc.CRITERIAVALUEID = cv.CRITERIAVALUEID ' +
-                'JOIN CRITERIANAME cn ON tc.CRITERIANAMEID = cn.CRITERIANAMEID ' +
-                'WHERE atmp.APPLICATIONID = :applicationId',
+            connection.execute('SELECT t.NAME, t.DESCRIPTION ' +
+            'FROM APPLICATION a JOIN APPLICATIONTEMPLATE at ON a.APPLICATIONID = at.APPLICATIONID ' +
+            'JOIN TEMPLATE t ON at.TEMPLATEID = t.TEMPLATEID ' +
+            'WHERE a.APPLICATIONID = :applicationId',
                 [req.params.application_id], {
                     outFormat: oracledb.OBJECT
                 }, function(err, result) {

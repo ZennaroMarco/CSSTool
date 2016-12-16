@@ -14,9 +14,9 @@ MyApp.controller('formCtrl', function($scope, $http, $filter) {
     $scope.formData =  [];
 
 
-    $http.get('http://localhost:3000/api/v1/template').then(
+    $http.get('/api/v1/template').then(
         function successCallback(data) {
-            alert("ok");
+            alert("ok bene bene");
         },
         function errorCallback(data) {
 
