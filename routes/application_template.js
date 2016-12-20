@@ -95,4 +95,51 @@ router.post('/api/v1/application_template', function(req, res) {
     });
 });
 
+router.post('/api/v1/application_templates', function(req, res) {
+    'use strict';
+
+    oracledb.getConnection(connAttrs, function(err, connection) {
+        if (err) {
+            res.set('Content-Type', 'application/json');
+            res.status(500).send(JSON.stringify({
+                status: 500,
+                message: 'Error connecting to db',
+                detailed_message: err.message
+            }));
+        } else {
+            var query = 'INSERT ALL ';
+            req.body.forEach(function(json) {
+                query += 'INTO APPLICATIONTEMPLATE VALUES (';
+                query += json.app_id + ', ';
+                query += json.template_id + ') ';
+            });
+            query += 'SELECT 1 FROM dual';
+
+            connection.execute(query,
+                {}, {
+                    outFormat: oracledb.OBJECT
+                }, function(err, result) {
+                    if (err) {
+                        res.set('Content-Type', 'application/json');
+                        res.status(400).send(JSON.stringify({
+                            status: 400,
+                            message: 'Input error',
+                            detailed_message: err.message
+                        }));
+                    } else {
+                        res.status(201).end();
+                    }
+
+                    connection.release(function(err) {
+                        if (err) {
+                            console.error(err.message);
+                        } else {
+                            console.log('POST /api/v1/application_templates : Connection released');
+                        }
+                    });
+                });
+        }
+    });
+});
+
 module.exports = router;

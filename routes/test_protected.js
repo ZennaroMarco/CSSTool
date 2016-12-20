@@ -1,9 +1,11 @@
 var express = require('express');
 var oracledb = require('oracledb');
-var jwt = require('jsonwebtoken');
+var auth = require('./auth');
+var mailer = require('../functions/mailer');
+
+var mailConfig = require('../config/mail');
 
 var router = express.Router();
-var secretKey = 'mysecretsecret';
 
 oracledb.autoCommit = true;
 
@@ -13,30 +15,17 @@ var connAttrs = {
     'connectString': 'localhost/xe'
 };
 
-router.get('/api/v1/test_protected', function(req, res) {
-    var token;
-    var payload;
+router.get('/api/v1/test_email', function(req,res) {
+    var to = 'russovalerio.92@gmail.com';
+    var body = mailConfig.body;
+    var name = 'Valerio';
+    var url = req.protocol + '://' + req.get('Host') +
+        req.originalUrl + '/ciao';
 
-    if (!req.headers.authorization) {
-        return res.status(401).send({message: 'You are not authorized'});
-    }
+    mailer.send(to, body, name, url);
+});
 
-    token = req.headers.authorization.split(' ')[1];
-
-    try {
-        payload = jwt.verify(token, secretKey);
-    } catch (e) {
-        if (e.name === 'TokenExpiredError') {
-            res.status(401).send({message: 'Token Expired'});
-            // redirect to login page
-        } else {
-            res.status(401).send({message: 'Authentication failed'});
-            // redirect to login page
-        }
-
-        return;
-    }
-
+router.get('/api/v1/test_protected', auth.auth(), function(req, res) {
     oracledb.getConnection(
         connAttrs, function(err, connection){
             if (err) {
