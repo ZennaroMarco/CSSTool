@@ -16,10 +16,14 @@ MyApp.controller('formCtrl', function($scope, $http, $filter) {
 
     $http.get('/api/v1/template').then(
         function successCallback(data) {
+<<<<<<< HEAD
 
            //$scope.template = data.name
 
            // alert("Ecco i dati" + data[0].name );
+=======
+            alert("ok bene bene");
+>>>>>>> 2d8c7c9c0dc26f4dc3125d0cb96cdb8f77b2edde
         },
 
         function errorCallback(data) {

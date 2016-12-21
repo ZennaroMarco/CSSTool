@@ -23,11 +23,10 @@ router.get('/api/v1/application_template/:application_id', function(req, res) {
                 detailed_message: err.message
             }));
         } else {
-            connection.execute('SELECT cn.NAME, cv.VALUE ' +
-                'FROM APPLICATIONTEMPLATE atmp JOIN TEMPLATECRITERIA tc ON atmp.TEMPLATEID = tc.TEMPLATEID ' +
-                'JOIN CRITERIAVALUE cv ON tc.CRITERIAVALUEID = cv.CRITERIAVALUEID ' +
-                'JOIN CRITERIANAME cn ON tc.CRITERIANAMEID = cn.CRITERIANAMEID ' +
-                'WHERE atmp.APPLICATIONID = :applicationId',
+            connection.execute('SELECT t.NAME, t.DESCRIPTION ' +
+            'FROM APPLICATION a JOIN APPLICATIONTEMPLATE at ON a.APPLICATIONID = at.APPLICATIONID ' +
+            'JOIN TEMPLATE t ON at.TEMPLATEID = t.TEMPLATEID ' +
+            'WHERE a.APPLICATIONID = :applicationId',
                 [req.params.application_id], {
                     outFormat: oracledb.OBJECT
                 }, function(err, result) {
@@ -89,6 +88,53 @@ router.post('/api/v1/application_template', function(req, res) {
                             console.error(err.message);
                         } else {
                             console.log('POST /api/v1/application_template : Connection released');
+                        }
+                    });
+                });
+        }
+    });
+});
+
+router.post('/api/v1/application_templates', function(req, res) {
+    'use strict';
+
+    oracledb.getConnection(connAttrs, function(err, connection) {
+        if (err) {
+            res.set('Content-Type', 'application/json');
+            res.status(500).send(JSON.stringify({
+                status: 500,
+                message: 'Error connecting to db',
+                detailed_message: err.message
+            }));
+        } else {
+            var query = 'INSERT ALL ';
+            req.body.forEach(function(json) {
+                query += 'INTO APPLICATIONTEMPLATE VALUES (';
+                query += json.app_id + ', ';
+                query += json.template_id + ') ';
+            });
+            query += 'SELECT 1 FROM dual';
+
+            connection.execute(query,
+                {}, {
+                    outFormat: oracledb.OBJECT
+                }, function(err, result) {
+                    if (err) {
+                        res.set('Content-Type', 'application/json');
+                        res.status(400).send(JSON.stringify({
+                            status: 400,
+                            message: 'Input error',
+                            detailed_message: err.message
+                        }));
+                    } else {
+                        res.status(201).end();
+                    }
+
+                    connection.release(function(err) {
+                        if (err) {
+                            console.error(err.message);
+                        } else {
+                            console.log('POST /api/v1/application_templates : Connection released');
                         }
                     });
                 });
