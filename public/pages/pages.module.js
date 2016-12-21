@@ -16,6 +16,10 @@
     'BlurAdmin.pages.charts',
     'BlurAdmin.pages.maps',
     'BlurAdmin.pages.profile',
+      'BlurAdmin.pages.applications',
+      'BlurAdmin.pages.projects',
+
+
   ])
       .config(routeConfig);
 
@@ -23,7 +27,7 @@
 
 
   function routeConfig($urlRouterProvider, baSidebarServiceProvider) {
-    $urlRouterProvider.otherwise('/dashboard');
+   // $urlRouterProvider.otherwise('/dashboard');
 
     /*baSidebarServiceProvider.addStaticItem({
      title: 'Pages',

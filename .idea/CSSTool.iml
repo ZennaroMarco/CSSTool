@@ -14,5 +14,6 @@
     <orderEntry type="library" name="angular" level="application" />
     <orderEntry type="library" name="materialize" level="application" />
     <orderEntry type="library" name="jquery-2.1.4" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
   </component>
 </module>

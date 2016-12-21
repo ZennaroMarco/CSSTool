@@ -114,7 +114,7 @@ define(['ojs/ojcore', 'jquery', 'ojs/ojcomponentcore', 'ojs/ojdvt-base', 'ojs/in
  *  [layer]{@link oj.ojThematicMap#areaLayers.layer} attribute to one of the
  *  supported values for that basemap.
  * </p>
- * <p>Applications are responsible for loading the necessary maps for a particular ojThematicMap component.
+ * <p>applications are responsible for loading the necessary maps for a particular ojThematicMap component.
  *  This can be done via RequireJS with the following module syntax 'basemaps/ojthematicmap-[basemap]-[layer]',
  *  e.g. 'basemaps/ojthematicmap-world-countries'.
  * </p>
@@ -178,7 +178,7 @@ define(['ojs/ojcore', 'jquery', 'ojs/ojcomponentcore', 'ojs/ojdvt-base', 'ojs/in
  *  attribute instead of passing in longitude and latitude coordinates.
  *  See the Thematic Map <a href="../uiComponents-thematicMap-points.html">Points Demo</a> for an example.
  * </p>
- * <p>Applications are responsible for loading the required cities basemap if needed.
+ * <p>applications are responsible for loading the required cities basemap if needed.
  *  This can be done via RequireJS with the following module syntax 'basemaps/ojthematicmap-[basemap]-cities',
  *  e.g. 'basemaps/ojthematicmap-world-cities'.
  * </p>

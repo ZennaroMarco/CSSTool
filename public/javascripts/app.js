@@ -14,17 +14,23 @@ MyApp.controller('formCtrl', function($scope, $http, $filter) {
     $scope.formData =  [];
 
 
-    $http.get('http://localhost:3000/api/v1/template').then(
+    $http.get('/api/v1/template').then(
         function successCallback(data) {
-            alert("ok");
+
+           //$scope.template = data.name
+
+           // alert("Ecco i dati" + data[0].name );
         },
+
         function errorCallback(data) {
 
             alert("error" + JSON.stringify(data));
         }
     );
 
-
+    $scope.parJson = function (json) {
+        return JSON.parse(json);
+    }
 
     $scope.processForm = function() {
         $http.post('/api/todos', $scope.formData)
@@ -44,7 +50,11 @@ MyApp.controller('formCtrl', function($scope, $http, $filter) {
     }
 
 
+
     $scope.addRow = function(){
+
+        alert(JSON.stringify($scope.formData));
+
         $scope.formData.push({ 'name':$scope.name, 'owner': $scope.owner, 'technology':$scope.technology, 'dato1':$scope.dato1, 'dato2':$scope.dato2, 'dato3':$scope.dato3, 'dato4':$scope.dato4 });
         $scope.name='';
         $scope.owner='';
@@ -54,7 +64,10 @@ MyApp.controller('formCtrl', function($scope, $http, $filter) {
         $scope.dato3='';
         $scope.dato4='';
 
+
     };
+
+
 
     $scope.checkAll = function () {
         if (!$scope.selectedAll) {
@@ -79,9 +92,12 @@ MyApp.controller('formCtrl', function($scope, $http, $filter) {
         $scope.formData = newDataList;
     };
 
-$scope.myCSVdata = [];
+    $scope.myCSVdata = [];
 
     $scope.handler=function(e,files){
+
+        alert("ciao");
+
 
         var files = e.target.files;
 
@@ -115,7 +131,7 @@ $scope.myCSVdata = [];
         }
 
 
-        };
+    };
 
     function accessFileContents(){
 
@@ -127,6 +143,7 @@ $scope.myCSVdata = [];
 
         json = json.replace(/\\n|\\r\\n|\\r/g, '');
         json = json.replace(/"/g, '');
+        alert("ciao");
 
         var campi = json.split(",");
 
@@ -165,6 +182,7 @@ $scope.myCSVdata = [];
 
 MyApp.directive('fileChange',['$parse', function($parse){
 
+    alert("BAM");
     return{
 
         require:'ngModel',
@@ -189,137 +207,5 @@ MyApp.directive('fileChange',['$parse', function($parse){
     }
 }]);
 
-MyApp.directive('fileReader', function() {
-    return {
-        scope: {
-            fileReader:"="
-
-        },
-        link: function(scope, element) {
-            $(element).on('change', function(changeEvent) {
-                var files = changeEvent.target.files;
-                if (files.length) {
-                    var r = new FileReader();
-                    r.onload = function(e) {
-
-                        var contents = e.target.result;
-
-                        scope.$apply(function () {
-                            scope.fileReader = contents;
-                        });
-
-                    };
 
 
-                    var appElement = document.querySelector('[ng-app=MyApp]');
-                    var $scope = angular.element(appElement).scope();
-
-                    $scope.$apply(function() {
-
-
-                        $scope.addRow();
-
-                    });
-
-                    alert("ciao");
-                    alert("ciao");
-
-
-                }
-            });
-        }
-    };
-});
-
-
-$scope.$watch("excelData", function() {
-    var lines, lineNumber, data, length;
-    $scope.inviteList = [];
-    lines = $scope.excelData.split('\n');
-    lineNumber = 0;
-    for (var i = lines.length - 1; i >= 0; i--) {
-        l = lines[i];
-
-        lineNumber++;
-        data = l.split(',');
-
-        var name = data[0];
-        var email = data[1];
-
-        $scope.inviteList.push({
-
-            $scope:formData.push({ 'name':$scope.name, 'owner': $scope.owner, 'technology':$scope.technology, 'dato1':$scope.dato1, 'dato2':$scope.dato2, 'dato3':$scope.dato3, 'dato4':$scope.dato4 })
-
-    });
-    }
-});
-
-function StringBuilder(value)
-{
-    this.strings = new Array("");
-    this.append(value);
-}
-
-// Appends the given value to the end of this instance.
-StringBuilder.prototype.append = function (value)
-{
-    if (value)
-    {
-        this.strings.push(value);
-    }
-}
-
-// Clears the string buffer
-StringBuilder.prototype.clear = function ()
-{
-    this.strings.length = 1;
-}
-
-// Converts this instance to a String.
-StringBuilder.prototype.toString = function ()
-{
-    return this.strings.join("");
-}
-
-
-function csvJSON(csv){
-
-    var lines=csv.split("\n");
-
-    var result = [];
-
-    var headers=lines[0].split(",");
-
-    for(var i=1;i<lines.length;i++){
-
-        var obj = {};
-        var currentline=lines[i].split(",");
-
-        for(var j=0;j<headers.length;j++){
-            obj[headers[j]] = currentline[j];
-        }
-
-        result.push(obj);
-
-    }
-
-    //return result; //JavaScript object
-    return JSON.stringify(result); //JSON
-
-}
-
-/*var app = angular.module('MyApp',[]);
-
-app.controller('formCtrl', function($scope, $http) {
-    $scope.data = [];
-
-    $http.get('http://localhost:3000/api/v1/template').then(
-        function successCallback(data) {
-            $scope.data = data;
-            alert("okkkkk");
-        },
-        function errorCallback(data) {
-            alert("error: " + data);
-        }
-    );
-});*/

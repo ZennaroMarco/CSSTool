@@ -1823,7 +1823,7 @@ oj.__registerWidget("oj.ojConveyorBelt", $['oj']['baseComponent'],
      * 
      * <p><b>WARNING:</b> The selector specified for this option should match 
      * only a single descendant DOM element.  If multiple elements are matched, 
-     * then only the first one will be used.  Applications should not depend on 
+     * then only the first one will be used.  applications should not depend on 
      * this behavior because we reserve the right to change it in the future in 
      * order to allow and use multiple matching elements.  
      *

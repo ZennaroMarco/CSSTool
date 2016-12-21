@@ -1,0 +1,52 @@
+
+<div class="feed-messages-container" track-width="smallContainerWidth" min-width="360">
+
+    <div class="feed-message" ng-repeat="message in feed | filter: {HASTEMPLATE: '1'}" ng-click="expandMessage(message)">
+
+        <div ng-repeat="message2 in feed2">
+
+            <div class="message-icon" ng-if="message2.type == 'text-message'">
+                <img class="photo-icon" ng-src="{{::( message2.author | profilePicture )}}">
+            </div>
+
+            <div class="message-icon" ng-if="message2.type != 'text-message'">
+                <img class="photo-icon" ng-src="{{::( message2.author | profilePicture )}}">
+                <span class="sub-photo-icon" ng-class="::message2.type"></span>
+            </div>
+
+        </div>
+
+        <div class="text-block text-message">
+
+            <div class="message-header">
+                <span class="author" style="color: white"> <!--{{ ::message.author }} -->  {{ ::message.NAME}}</span>
+            </div>
+
+
+            <div class="message-content line-clamp" ng-class="{'line-clamp-2' : !message.expanded}" style="color: #ECEFF1" >
+                <span ng-if="message.preview" style="color: #ECEFF1">{{message.header}} </span>{{::message.DESCRIPTION}}
+            </div>
+
+            <div class="preview" ng-show="message.expanded" ng-if="message.preview" style="color: #ECEFF1" >
+                <a href="{{::message.link}}" target="_blank">
+                    <img ng-src="{{ ::( message.preview | appImage )}}">
+                </a>
+            </div>
+
+            <div ng-show="message.expanded" class="message-time" style="color: #ECEFF1">
+
+                <div class="post-time" style="color: #ECEFF1">
+                    {{::message.time}}
+                </div>
+
+                <div class="ago-time" style="color: #ECEFF1">
+                    {{::message.ago}}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+

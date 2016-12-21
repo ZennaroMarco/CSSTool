@@ -50,6 +50,69 @@ router.get('/api/v1/application', function(req, res) {
     });
 });
 
+router.post('/api/v1/applications', function(req, res) {
+    'use strict';
+
+
+    oracledb.getConnection(connAttrs, function(err, connection) {
+        if (err) {
+            res.set('Content-Type', 'application/json');
+            res.status(500).send(JSON.stringify({
+                status: 500,
+                message: 'Error connecting to db',
+                detailed_message: err.message
+            }));
+        } else {
+
+            //console.log(req.body);
+
+            var query = 'INSERT ALL ';
+            //for (var appJson in req.body) {
+
+            req.body.forEach(function(appJson) {
+
+
+                query += 'INTO APPLICATION (NAME, DESCRIPTION, OWNER, TECHNOLOGY, BUSINESSAREA) ' +
+                    'VALUES (';
+                query += "\'" + appJson.name + '\', ';
+                query += "\'" + appJson.description + '\', ';
+                query += "\'" + appJson.owner + '\', ';
+                query += "\'" + appJson.technology + '\', ';
+                query += "\'" + appJson.business_area + '\') ';
+
+               // console.log(appJson);
+
+            });
+             console.log(query);
+
+            query += 'SELECT 1 FROM dual';
+            connection.execute(query,
+                {}, {
+                    outFormat: oracledb.OBJECT
+                }, function(err, result) {
+                    if (err) {
+                        res.set('Content-Type', 'application/json');
+                        res.status(400).send(JSON.stringify({
+                            status: 400,
+                            message: 'Input error',
+                            detailed_message: err.message
+                        }));
+                    } else {
+                        res.status(201).end();
+                    }
+                    connection.release(function(err) {
+                        if (err) {
+                            console.error(err.message);
+                        } else {
+                            console.log('POST /api/v1/applications : Connection released');
+                        }
+                    });
+                });
+        }
+    });
+});
+
+
 router.post('/api/v1/application', function(req, res) {
     'use strict';
 

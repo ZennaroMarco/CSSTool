@@ -641,8 +641,8 @@ oj.__registerWidget("oj.ojInputDate", $['oj']['inputBase'],
      * Valid values: jet, native
      *
      * <ul>
-     *  <li> jet - Applications get full JET functionality.</li>
-     *  <li> native - Applications get the functionality of the native picker. Native picker is
+     *  <li> jet - applications get full JET functionality.</li>
+     *  <li> native - applications get the functionality of the native picker. Native picker is
      *  not available when the picker is inline, defaults to jet instead.</li></br>
      *  Note that the native picker support is limited to Cordova plugin published 
      *  at 'https://github.com/VitaliiBlagodir/cordova-plugin-datepicker'.</br>
@@ -4281,8 +4281,8 @@ oj.__registerWidget("oj.ojInputTime", $['oj']['inputBase'],
      * Valid values: jet, native
      *
      * <ul>
-     *  <li> jet - Applications get full JET functionality.</li>
-     *  <li> native - Applications get the functionality of the native picker.</li></br>
+     *  <li> jet - applications get full JET functionality.</li>
+     *  <li> native - applications get the functionality of the native picker.</li></br>
      *  Note that the native picker support is limited to Cordova plugin published 
      *  at 'https://github.com/VitaliiBlagodir/cordova-plugin-datepicker'.</br>
      *  With native renderMode, the functionality that is sacrificed compared to jet renderMode are:
@@ -7620,8 +7620,8 @@ oj.__registerWidget("oj.ojInputDateTime", $['oj']['ojInputDate'],
      * Valid values: jet, native
      *
      * <ul>
-     *  <li> jet - Applications get full JET functionality.</li>
-     *  <li> native - Applications get the functionality of the native picker.</li></br>
+     *  <li> jet - applications get full JET functionality.</li>
+     *  <li> native - applications get the functionality of the native picker.</li></br>
      *  Note that the native picker support is limited to Cordova plugin published 
      *  at 'https://github.com/VitaliiBlagodir/cordova-plugin-datepicker'.</br>
      *  With native renderMode, the functionality that is sacrificed compared to jet renderMode are:
