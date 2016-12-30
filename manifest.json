@@ -2,7 +2,7 @@
   "runtime": {
     "majorVersion": "4.4"
   },
-  "command": "node ./bin/www",
+  "command": "node ./bin/server",
   "release": {},
   "notes": ""
 }
