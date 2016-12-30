@@ -6124,8 +6124,8 @@ var _OjSingleSelect = _ComboUtils.clazz(_AbstractSingleChoice,
        * Valid Values: jet, native
        *
        * <ul>
-       *  <li> jet - Applications get full JET functionality.</li>
-       *  <li> native - Applications get the HTML Select tag functionality and additional JET features below:
+       *  <li> jet - applications get full JET functionality.</li>
+       *  <li> native - applications get the HTML Select tag functionality and additional JET features below:
        *    <ul>
        *      <li>validation</li>
        *      <li>placeholder</li>

@@ -1,0 +1,508 @@
+<style>
+
+    .panel-title {
+
+        color: white;
+
+    }
+
+    .panel {
+
+        color:white;
+
+    }
+
+    .progress-bar {
+
+        color:white;
+        background-color: #d22d2d;
+        width: 1000px;
+
+    }
+
+    .progress-bar-danger {
+
+        color:white;
+        background-color: #d22d2d;
+        width: 1000px;
+
+    }
+
+    .form-group {
+
+        text-align: center;
+
+    }
+
+    .form-control {
+
+        text-align: center;
+        color: black;
+    }
+
+    #column-wrap {
+        overflow: hidden;
+    }
+
+    .stessaLunghezza {
+
+        height: 500px;
+    }
+
+    .vcenter {
+        display: inline-block;
+        vertical-align: middle;
+        float: none;
+    }
+
+
+</style>
+
+<script>
+    $('#icondemo').filestyle({
+        iconName : 'glyphicon glyphicon-file',
+        buttonText : 'Select File',
+        buttonName : 'btn-warning'
+    });
+</script>
+
+<div class="widgets">
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <div ba-panel ba-panel-title="New Project" ba-panel-class="with-scroll">
+
+                <ba-wizard>
+
+                    <ba-wizard-step title="Informations" form="vm.personalInfoForm">
+
+                        <div class="row">
+
+                            <div class="col-md-12" style="align-content: center; text-align: center; margin-top: 30px;"  >
+
+                                <h4><h3><b><i>Instructions&nbsp;</i></b></h3></h4>
+                                <p class="p1" style="margin-top:2px; margin-bottom:10px;">This spreadsheet provides a framework to evaluate components <br> (e.g. applications, services, modules) for hosting in either a public or private cloud.</p>
+                            </div>
+
+                        </div>
+
+                        <hr width="50%">
+                        <!-- fine istruzione header -->
+
+                        <div class="container col-md-12" style="margin-bottom: 20px; margin-top: -20px;">
+
+                            <div class="banner-text">
+
+                                <div class="row" style="align-content: center; margin-top: 10px;" >
+
+                                    <div class="col-md-4 vcenter" style=" padding-right:40px;border-right:1px solid whitesmoke; align-content: center; text-align: center;">
+
+                                        <h4>Evaluation Criteria Worksheet</h4>
+                                        <div>
+                                            <img src="images/icon-2.png" height="150" width="150">
+                                        </div>
+                                        <p style="margin-top: 20px; color: white">This worksheet lists all of the evaluation criteria used within the framework.&nbsp; Each criteria has a unique name, a description, and a list of options that can be selected for the criteria when scoring components for that criteria.&nbsp; Each of the options provides a suitability score for both public and private cloud hosting.&nbsp; A higher score indicates greater suitability for cloud hosting.</p>
+
+                                    </div>
+
+                                    <div class="col-md-6 col-md-offset-1 vcenter" style=";text-align: center; align-content: center;">
+
+                                        <h2 style="margin-bottom: 40px; margin-top: -20px;">Typical Customizations</h2>
+                                        <p class="p1"><b>Changing criteria scoring</b></p>
+                                        <p class="p1" style="color: white">This is the simplest customization allowing the relative scoring of the options provided to be modified.&nbsp;</p>
+                                        <hr class="black bg-black" width="50%" style="color: floralwhite">
+                                        <p class="p1"><b>Changing the options</b></p>
+                                        <p class="p1" style="color: white">This modification changes the options listed for the criteria.&nbsp; Adding additional options or removing existing options will require modifications to the Components worksheet.&nbsp; Renaming options but keeping the same number of options will not</p>
+                                        <hr class="black bg-black" width="50%">
+                                        <p class="p1"><b>Adding a new evaluation criteria</b></p>
+                                        <p class="p1" style="color: white">This modification includes new criteria in the suitability scoring.&nbsp; This modification will require changes to Weighting and Components worksheets</p>
+                                        <hr class="black bg-black" width="50%">
+                                        <p class="p1"><b>Note: removing an existing criteria is not recommended</b></p>
+                                        <p class="p1" style="color: white">It is easier to put a zero weight in the Weighting worksheet to effectively remove a criteria from consideration</p>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Fine prima riga -->
+
+
+                        <div class="container col-md-12" style="margin-bottom: 10px; margin-top: -40px;">
+
+                            <div class="banner-text">
+
+                                <div class="row" style="align-content: center; margin-top: 10px;" >
+
+                                    <div class="col-md-6 vcenter" style="align-content: center; text-align: center;">
+                                        <h2 style="margin-bottom: 40px; margin-top: -20px;">Typical Customizations</h2>
+                                        <p class="p1"><b>Modifying criteria weights &nbsp;</b></p>
+                                        <p class="p1" style="color: white">This allows some criteria to have more importance in the final analysis than other criteria.&nbsp; Two predefined weighting profiles (Coordination Operating Model, Compliance Focus) are given as examples.&nbsp; To use either of these profiles, copy the weighting factors in the corresponding column and paste them into the Weighting column, or set custom weighting for each criteria according to customer priorities.&nbsp; You can also reflect the customer bias toward public or private cloud by setting the Private Cloud Bias - greater than 1 (e.g., 1.1) reflects a bias toward Private Cloud, less than 1 (e.g., 0.9) reflects a bias toward Public Cloud</p>
+                                    </div>
+
+                                    <div class="col-md-4 col-md-offset-1 vcenter" style="border-left:1px solid whitesmoke; align-content: center; text-align: center; padding-left: 40px;">
+                                        <h4>Weighting Worksheet</h4>
+                                        <div>
+                                            <img src="images/icon-2.png" height="150" width="150">
+                                        </div>
+
+                                        <p style="margin-top: 20px; color: white">This worksheet provides the ability to weight each of the evaluation criteria in the Criteria worksheet.&nbsp; Setting a criteria weight to zero effectively removes that criteria from consideration.</p>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Fine seconda riga -->
+
+                        <div class="container col-md-12" style="margin-bottom: 20px; margin-top: -20px;">
+
+                            <div class="banner-text">
+
+                                <div class="row" style="align-content: center; margin-top: 10px;" >
+
+                                    <div class="col-md-4 vcenter" style=" padding-right:40px;border-right:1px solid whitesmoke; align-content: center; text-align: center;">
+
+                                        <h4>Evaluation Criteria Worksheet</h4>
+                                        <div>
+                                            <img src="images/icon-2.png" height="150" width="150">
+                                        </div>
+                                        <p style="margin-top: 20px; color: white">This worksheet lists all of the evaluation criteria used within the framework.&nbsp; Each criteria has a unique name, a description, and a list of options that can be selected for the criteria when scoring components for that criteria.&nbsp; Each of the options provides a suitability score for both public and private cloud hosting.&nbsp; A higher score indicates greater suitability for cloud hosting.</p>
+
+                                    </div>
+
+                                    <div class="col-md-6 col-md-offset-1 vcenter" style=";text-align: center; align-content: center;">
+
+                                        <h2 style="margin-bottom: 40px; margin-top: -20px;">Typical Customizations</h2>
+                                        <p class="p1"><b>Changing criteria scoring</b></p>
+                                        <p class="p1" style="color: white">This is the simplest customization allowing the relative scoring of the options provided to be modified.&nbsp;</p>
+                                        <hr class="black bg-black" width="50%" style="color: floralwhite">
+                                        <p class="p1"><b>Changing the options</b></p>
+                                        <p class="p1" style="color: white">This modification changes the options listed for the criteria.&nbsp; Adding additional options or removing existing options will require modifications to the Components worksheet.&nbsp; Renaming options but keeping the same number of options will not</p>
+                                        <hr class="black bg-black" width="50%">
+                                        <p class="p1"><b>Adding a new evaluation criteria</b></p>
+                                        <p class="p1" style="color: white">This modification includes new criteria in the suitability scoring.&nbsp; This modification will require changes to Weighting and Components worksheets</p>
+                                        <hr class="black bg-black" width="50%">
+                                        <p class="p1"><b>Note: removing an existing criteria is not recommended</b></p>
+                                        <p class="p1" style="color: white">It is easier to put a zero weight in the Weighting worksheet to effectively remove a criteria from consideration</p>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Fine prima riga -->
+
+
+                        <div class="container col-md-12" style="margin-bottom: 10px; margin-top: -40px;">
+
+                            <div class="banner-text">
+
+                                <div class="row" style="align-content: center; margin-top: 10px;" >
+
+                                    <div class="col-md-6 vcenter" style="align-content: center; text-align: center;">
+                                        <h2 style="margin-bottom: 40px; margin-top: -20px;">Typical Customizations</h2>
+                                        <p class="p1"><b>Modifying criteria weights &nbsp;</b></p>
+                                        <p class="p1" style="color: white">This allows some criteria to have more importance in the final analysis than other criteria.&nbsp; Two predefined weighting profiles (Coordination Operating Model, Compliance Focus) are given as examples.&nbsp; To use either of these profiles, copy the weighting factors in the corresponding column and paste them into the Weighting column, or set custom weighting for each criteria according to customer priorities.&nbsp; You can also reflect the customer bias toward public or private cloud by setting the Private Cloud Bias - greater than 1 (e.g., 1.1) reflects a bias toward Private Cloud, less than 1 (e.g., 0.9) reflects a bias toward Public Cloud</p>
+                                    </div>
+
+                                    <div class="col-md-4 col-md-offset-1 vcenter" style="border-left:1px solid whitesmoke; align-content: center; text-align: center; padding-left: 40px;">
+                                        <h4>Weighting Worksheet</h4>
+                                        <div>
+                                            <img src="images/icon-2.png" height="150" width="150">
+                                        </div>
+
+                                        <p style="margin-top: 20px; color: white">This worksheet provides the ability to weight each of the evaluation criteria in the Criteria worksheet.&nbsp; Setting a criteria weight to zero effectively removes that criteria from consideration.</p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </ba-wizard-step>
+
+                    <ba-wizard-step title="1. Project" form="vm.productInfoForm">
+
+                        <form name="vm.personalInfoForm" novalidate>
+
+                            <div class="row" style="min-height: 400px;margin-top: 20px;">
+
+                                <div class="col-md-8 col-md-offset-2" style="margin-bottom: 40px;">
+
+                                    <div class="banner-text" style="width: 100%; height: 100%">
+
+                                    <div class="form-group"
+                                         ng-class="{'has-error': vm.personalInfoForm.username.$invalid && (vm.personalInfoForm.username.$dirty || vm.personalInfoForm.$submitted)}">
+                                        <label for="exampleUsername1" style="color: white; margin-bottom: 15px; margin-top:20px; font-size: large">Project Name</label>
+                                        <input type="text" class="form-control center-block" id="exampleUsername1" name="username" placeholder="Name" ng-model="vm.personalInfo.username" style="border: 1px solid black; width: 50%" required>
+                                        <span class="help-block error-block basic-block">Project Name Required</span>
+                                        {{vm.personalInfo.username}}
+                                    </div>
+
+                                    <div class="form-group" style="margin-top: 40px;">
+                                        <label for="exampleInputEmail1" style="color: white; margin-bottom: 15px; margin-top:15px; font-size: large">Project Description</label>
+                                        <textarea type="email" class="form-control center-block" id="exampleInputEmail1" name="email" placeholder="Description (Optional)" ng-model="vm.personalInfo.email" required style="margin-bottom: 50px; border: 1px solid black; width: 50%" ></textarea>
+                                    </div>
+
+                                     </div>
+
+                                 </div>
+                            </div>
+
+                        </form>
+
+                    </ba-wizard-step>
+
+                    <ba-wizard-step title="2. Applications" form="vm.addressForm">
+
+                        <div class="row" style="min-height: 400px;">
+
+    <div class="col-md-4"  style="margin-top: 50px;">
+
+            <div class="panel-group" id="accordion">
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading" style="background-color: white">
+
+                    <h6 class="panel-title" style="color: black; font-size: small;">
+
+                        <a data-toggle="collapse" data-parent="#accordion" href="#ciao"><i class="fa fa-upload" style="margin-right: 15px;"></i>Upload your applications (.CSV file)</a>
+                    </h6>
+                </div>
+
+                <div id="ciao" class="panel-collapse collapse">
+
+                    <div class="panel-body">
+
+                        <form>
+
+                            <div class="row" style="margin-top: 40px; margin-left: 80px;">
+
+                                    <a class='btn btn-primary' href='javascript:;' style="background-color: #18B29D">
+                                        Choose File...
+                                        <input type="file" file-change="handler($event,files)" ng-model="formData" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="file_source" size="10" onchange='$("#upload-file-info").html($(this).val());'>
+                                    </a>
+
+                                    <span class='label label-info' id="upload-file-info" style="margin-left: 20px;"></span>
+
+
+                            </div>
+
+                            <div class="row">
+
+                                <div style="margin-top: 40px;">
+
+                                    <div class="form-group">
+                                        <input type="button" class="btn btn-primary center-block" ng-click="remove()" value="Insert Applications" style="background-color: #18B29D ;width: 60%;margin-bottom: 20px;margin-top:10px; align-content: center; text-align: center;">
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading" style="background-color: white">
+
+                    <h6 class="panel-title" style="color: black; font-size: small;">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#ciao2"><i class="fa fa-plus-square" style="margin-right: 15px;"></i>Create your applications</a>
+                    </h6>
+                </div>
+
+                <div id="ciao2" class="panel-collapse collapse">
+
+                    <div class="panel-body">
+
+                        <form ng-submit="addRow(formData)">
+
+                                    <div class="form-group">
+                                        <label>Application Name</label>
+                                        <input type="text" class="form-control center-block" ng-model="formData.name" style="border: 1px solid black; width: 80%" required>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <input type="text" class="form-control center-block" ng-model="formData.description" style="border: 1px solid black; width: 80%">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Owner</label>
+                                        <input type="text" class="form-control center-block" ng-model="formData.owner" style="border: 1px solid black; width: 80%">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Technology</label>
+                                        <input type="text" class="form-control center-block" ng-model="formData.technology" style="border: 1px solid black; width: 80%">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Business Area</label>
+                                        <input type="text" class="form-control center-block" ng-model="formData.dato1" style="border: 1px solid black; width: 80%">
+                                    </div>
+
+                                    <button class="btn btn-primary btn-with-icon center-block" type="submit" name="action" style="width: 40%; align-content: center; text-align: center; margin-top: 30px;"><i class="ion-android-download"></i>Add Application</button>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="col-md-6 col-md-offset-1" file-reader="fileContent" style="margin-top: 35px;">
+
+            <div class="horizontal-scroll">
+
+                <table class="table table-bordered" id="app" style="text-align: center">
+
+            <thead style="text-align: center">
+
+                <th class="text-center">
+                        <input type="checkbox" id="test6" ng-model="selectedAll" ng-click="checkAll()" />
+                        <label for="test6"></label>
+                </th>
+                <th data-field="appName" data-override="name" class="text-center">App Name</th>
+                <th data-field="owner" data-override="description" class="text-center" style="display:none">Description</th>
+                <th data-field="owner" data-override="owner" class="text-center">Owner</th>
+                <th data-field="technology" data-override="technology" class="text-center">Technology</th>
+                <th data-field="Dato1" data-override="business_area" class="text-center">Business Area</th>
+
+            </tr>
+
+            </thead>
+
+            <tr ng-repeat="formData in formData">
+
+                <label class="checkbox-inline custom-checkbox nowrap">
+                    <input type="checkbox" id="inlineCheckbox01" value="option1">
+                </label>
+
+                <td>
+                    <input type="checkbox" id="{{formData.name}}" ng-model="formData.selected"/>
+                    <label for="{{formData.name}}" ></label></td>
+                <td>{{ formData.name}}</td>
+                <td style="display: none">{{ formData.description}}</td>
+                <td>{{ formData.owner}}</td>
+                <td>{{ formData.technology}}</td>
+                <td>{{formData.dato1}}</td>
+
+            </tr>
+
+            </tbody>
+
+    </table>
+            </div>
+
+        <div class="form-group">
+            <input type="button" class="btn btn-danger pull-right" ng-click="remove()" value="Remove" style="margin-top: 30px;">
+        </div>
+
+    </div>
+
+</div>
+
+                    </ba-wizard-step>
+
+                    <ba-wizard-step title="3. Template">
+
+                        <form class="form-horizontal" name="vm.finishForm" novalidate>
+
+                            <div class="row">
+
+                            <div class="col-md-12" file-reader="fileContent">
+
+                                <div class="banner-text" style="width: 100%; height: 100%; margin-top: -5px;">
+
+                                <div class="horizontal-scroll" style="margin-top: -20px;">
+
+                                    <table class="table table-bordered" id="app2" style="text-align: center">
+
+                                        <thead style="text-align: center">
+
+                                        <th data-field="appName" data-override="name" class="text-center">App Name</th>
+                                        <th data-field="owner" data-override="description" class="text-center" style="display:none">Description</th>
+                                        <th data-field="owner" data-override="owner" class="text-center">Owner</th>
+                                        <th data-field="technology" data-override="technology" class="text-center">Technology</th>
+                                        <th data-field="Dato1" data-override="business_area" class="text-center">Business Area</th>
+                                        <th data-field="template" class="text-center">Template</th>
+
+                                        </tr>
+
+                                        </thead>
+
+                                        <tr ng-repeat="formData in formData">
+
+                                            <label class="checkbox-inline custom-checkbox nowrap">
+                                                <input type="checkbox" id="inlineCheckbox01" value="option1">
+                                            </label>
+
+
+                                            <td>{{ formData.name}}</td>
+                                            <td style="display: none">{{ formData.description}}</td>
+                                            <td>{{ formData.owner}}</td>
+                                            <td>{{ formData.technology}}</td>
+                                            <td>{{formData.dato1}}</td>
+                                            <td style="color: red; background-color: transparent; text-align: center">
+                                                <select style="color: red; width: 100% ; background-color: transparent; text-align: center" ng-options="template.NAME for template in templates" ng-model="selected">
+                                                    <option value="">No Template</option>
+
+                                                </select>
+                                             </td>
+
+                                        </tr>
+
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+
+                            </div>
+                            </div>
+                        </form>
+
+                        <div class="row">
+
+                            <div class="col-md-4 col-md-offset-4">
+
+                                <hr />
+
+                                <div class="form-group">
+                                    <input type="button" class="btn btn-danger center-block" ng-click="trasformation()" value="Submit" style="margin-top: 30px;">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </ba-wizard-step>
+                </ba-wizard>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -163,7 +163,7 @@ define(['ojs/ojcore', 'jquery', 'ojs/ojcomponentcore', 'ojs/ojdvt-base', 'ojs/in
  *   orientation: 'vertical',
  *   sections: [{text : "Database"},
  *              {text : "Middleware"},
- *              {text : "Applications"}]
+ *              {text : "applications"}]
  * }"/>
  * </code>
  * </pre>
@@ -189,7 +189,7 @@ define(['ojs/ojcore', 'jquery', 'ojs/ojcomponentcore', 'ojs/ojdvt-base', 'ojs/in
  * $(".selector").ojLegend();
  *
  * @example <caption>Initialize the Legend with some options:</caption>
- * $(".selector").ojLegend({orientation: 'vertical', sections: [{text : "Database"}, {text : "Middleware"}, {text : "Applications"}});
+ * $(".selector").ojLegend({orientation: 'vertical', sections: [{text : "Database"}, {text : "Middleware"}, {text : "applications"}});
  *
  * @example <caption>Initialize the Legend via the JET <code class="prettyprint">ojComponent</code> binding:</caption>
  * &lt;div data-bind="ojComponent: {component: 'ojLegend'}">

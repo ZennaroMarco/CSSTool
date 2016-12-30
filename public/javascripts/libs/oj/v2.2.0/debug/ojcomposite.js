@@ -707,7 +707,7 @@ ko.virtualElements.allowedBindings['_ojSlot_'] = true;
  *  <li><b><i>pending</i></b> - Fired to notify the application that a composite component is about to render.</li>
  *  <li><b><i>ready</i></b> - Fired after bindings are applied on the composite component's children. Child pending events will be fired before the parent
  *    composite component's ready event. Note that this does not gaurantee that its children are ready at this point as they could be performing
- *    their own asynchronous operations. Applications may use the pending and ready events  to determine when a composite
+ *    their own asynchronous operations. applications may use the pending and ready events  to determine when a composite
  *    component and its children are fully ready (i.e. when the number of received ready events matches the number of received pending events).</li>
  *  <li><b><i>[propertyName]-changed</i></b> - Fired when a property is modified and contains the following fields in its event detail object:
  *    <ul>
@@ -986,7 +986,7 @@ ko.virtualElements.allowedBindings['_ojSlot_'] = true;
  *   <a class="bookmarkable-link" title="Bookmarkable Link" href="#writeback"></a>
  * </h2>
  * <p>Besides string literals, composite attributes can be set using expression syntax which is currently compatible with knockout expression syntax.
- * Applications can control expression writeback in the composite component by using {{}} syntax for two-way writable binding expressions
+ * applications can control expression writeback in the composite component by using {{}} syntax for two-way writable binding expressions
  * or [[]] for one-way only expressions. In the example below, the salesData expression will not be written back to if the 'data' property
  * is updated by the composite component's ViewModel. The 'data' property will contain the current value, but the salesData expression will not
  * be updated. Alternatively, if the 'axisLabels' property is updated by the ViewModel, both the 'axisLabel' property and the showAxisLabels expression

@@ -70,8 +70,8 @@ define(['ojs/ojcore', 'jquery', 'ojs/ojcomponentcore', 'ojs/ojdvt-base', 'ojs/in
  * </p>
  *
  * <h4>Data Set Size</h4>
- * <p>Applications should avoid setting very large data densities on this component.
- *    Applications can enable progressive reveal of data through drilling or aggregate small nodes to reduce the
+ * <p>applications should avoid setting very large data densities on this component.
+ *    applications can enable progressive reveal of data through drilling or aggregate small nodes to reduce the
  *    displayed data set size.
  * </p>
  *

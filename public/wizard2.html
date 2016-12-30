@@ -236,19 +236,10 @@
 
                    <form>
 
-                        <div class="file-field input-field">
 
-                            <div class="btn">
-                                <span>File</span>
+                                <span>Ciao</span>
                                 <input type="file" file-change="handler($event,files)" ng-model="formData" />
 
-                            </div>
-
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text">
-                            </div>
-
-                        </div>
 
 
                             <button class="btn waves-effect waves-light"  ng-click="remove()" style="align-content: center; text-align: center; margin-top: 30px;">Insert Applications
@@ -415,7 +406,46 @@
 </div>
     </div>
 
-    <div id="template" class="col s12">Test 3</div>
+    <div id="template" class="col s12">
+
+        <table class="centered highlight bordered">
+
+            <thead>
+
+            <tr>
+                <th data-field="appName">App Name</th>
+                <th data-field="owner">Owner</th>
+                <th data-field="technology">Technology</th>
+                <th data-field="template">Template </th>
+            </tr>
+
+            </thead>
+
+            <tr ng-repeat="formData in formData">
+
+                <td>{{formData.name}}</td>
+                <td>{{formData.owner}}</td>
+                <td>{{formData.technology}}</td>
+                <td>
+                    <select class="browser-default">
+                        <option value="" disabled selected>Choose your Template</option>
+                        <option value="1">ERP</option>
+                        <option value="2">OTM</option>
+                        <option value="3">HCM</option>
+                    </select>
+                </td>
+
+
+            </tr>
+
+            </tbody>
+
+        </table>
+
+
+    </div>
+
+
 
 
 </body>

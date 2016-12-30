@@ -28,18 +28,27 @@
       $scope.charts2 = [{
           description: 'Applications',
           stats: '# 570',
-          icon: 'person',
+          icon: 'person'
       },
-          {
-              description: 'Templated Apps',
-              stats: '# 120',
-              icon: 'money',
-          },
+
     ];
 
     function getRandomArbitrary(min, max) {
       return Math.random() * (max - min) + min;
     }
+
+
+
+      $scope.flip2 = function(id) {
+
+          $(id).flip({
+              axis: 'y',
+              trigger: 'click'
+          });
+
+
+      }
+
 
     function loadPieCharts() {
       $('.chart').each(function () {

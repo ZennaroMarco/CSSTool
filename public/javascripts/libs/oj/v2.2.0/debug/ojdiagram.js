@@ -273,8 +273,8 @@ define(['ojs/ojcore', 'jquery', 'ojs/ojcomponentcore', 'ojs/ojdvt-base', 'ojs/in
  * </p>
  *
  * <h4>Data Set Size</h4>
- * <p>Applications should avoid setting very large data densities on this component.
- * Applications can aggregate small nodes to reduce the displayed data set size.
+ * <p>applications should avoid setting very large data densities on this component.
+ * applications can aggregate small nodes to reduce the displayed data set size.
  * </p>
  *
  * <h4>Style Attributes</h4>
